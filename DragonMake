@@ -1,0 +1,36 @@
+name: WheelOfTime
+id: com.mrgcgamer.wheeloftime
+depends: mobilesubstrate
+architecture: iphoneos-arm
+version: 1.0.0
+description: An 0w0some iBr1ck tw3k!
+author: MrGcGamer
+section: Tweaks
+depiction: https://mrgcgamer.github.io/depictions/WOT/index.html"
+sldepiction: https://mrgcgamer.github.io/depictions/WOT/LST.json"
+
+all:
+  archs:
+    - arm64
+    - arm64e
+  optim: "3"
+  cflags: "-flto"
+
+WheelOfTime:
+  type: tweak
+  frameworks:
+    - Foundation
+  filter:
+    bundles:
+      - "com.apple.mobilecal"
+      - "com.apple.mobiletimer"
+  files:
+    - Tweak.m
+
+Strip:
+  type: stage
+  stage:
+    - echo "$$(tput bold)$$(tput setaf 9)[GC]$$(tput setaf 15) Stripping Symbols$$(tput sgr0)"
+    - find .dragon/_/Library -type f \( -perm +111 ! -iname "*.plist" \) -exec strip -x -S -T -N {} &>/dev/null \; ldid -S {} \;
+    - echo "$$(tput bold)$$(tput setaf 9)[GC]$$(tput setaf 15) Converting plists to binary$$(tput sgr0)"
+    - find .dragon/_/Library -name "*.plist" -exec plutil -convert binary1 {} \;
