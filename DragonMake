@@ -7,7 +7,7 @@ description: An 0w0some iBr1ck tw3k!
 author: MrGcGamer
 section: Tweaks
 depiction: https://mrgcgamer.github.io/depictions/WOT/index.html"
-sldepiction: https://mrgcgamer.github.io/depictions/WOT/LST.json"
+sldepiction: https://mrgcgamer.github.io/depictions/WOT/SLD.json"
 
 all:
   archs:
